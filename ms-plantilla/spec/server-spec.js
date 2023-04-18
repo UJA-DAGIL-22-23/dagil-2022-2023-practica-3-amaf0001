@@ -39,7 +39,7 @@ describe('Servidor PLANTILLA:', () => {
           //console.log( "BODY ACERCA DE ", res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
           assert(res.body.mensaje === "Microservicio MS Plantilla: acerca de");
-
+          assert(res.body.autor === "Alba María Álvarez Fernández");
         })
         .end((error) => { error ? done.fail(error) : done() })
     });

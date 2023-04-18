@@ -1,5 +1,29 @@
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/hneiFYl3)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10405384&assignment_repo_type=AssignmentRepo)
+
+# Documentación de la práctica 3
+
+## Alba María Álvarez Fernández <amaf0001@red.ujaen.es>
+
+### Trello:
+URL:
+Captura pantalla inicial
+
+### Fauna:
+Colección, documentos
+
+### Primer incremento
+
+* Historias de Usuario implementadas: HU1 Acerca de
+* Captura de pantalla:
+    * Trello ANTES de hacer la HU
+    * Trello DESPUËS de hacer la HU
+    * Evidencia de que está hecha la HU (=captura de pantalla del navegador)
+
+
+
 # *Plantilla Práctica Microservicios*: descripción de la aplicación
 
 Este código que se presenta aquí corresponde a la plantilla para realizar un desarrollo basado en microservicios para las prácticas de Desarrollo Ágil, para el curso 2022-2023.

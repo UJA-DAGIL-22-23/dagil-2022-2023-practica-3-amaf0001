@@ -9,17 +9,26 @@
 
 ### Trello:
 URL: https://trello.com/b/yEcs8QV1/practica3
+
 Captura pantalla inicial
+
 <img src="./assets/img/hu1_inicio_trello.png">
 
 ### Fauna:
 Home:
+
 <img src="./assets/img/homeFauna.png">
+
 Base de datos:
+
 <img src="./assets/img/baseDatos.png">
+
 Colección:
+
 <img src="./assets/img/colleccionFauna.png">
+
 Documentos en formato JSON:
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359175247080980684"),
   "ts": 1678796929950000,
@@ -40,6 +49,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Travesias"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359175529521217741"),
   "ts": 1678796953190000,
@@ -65,6 +75,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Descensos"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359175756761268428"),
   "ts": 1678796985100000,
@@ -85,6 +96,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Ascensos"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359175922915475660"),
   "ts": 1678797024650000,
@@ -104,6 +116,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Velocidad"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176033195262156"),
   "ts": 1678797058785000,
@@ -124,6 +137,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Maraton"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176169333981389"),
   "ts": 1678797088160000,
@@ -147,6 +161,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Ascensos"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176311702290637"),
   "ts": 1678797106930000,
@@ -166,6 +181,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Descensos"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176418334081228"),
   "ts": 1678797127290000,
@@ -186,6 +202,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Maraton"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176546644132044"),
   "ts": 1678797149270000,
@@ -207,6 +224,7 @@ Documentos en formato JSON:
     "tipoCompeticion": "Travesias"
   }
 }
+
 {
   "ref": Ref(Collection("practica3_DAgil"), "359176659308380364"),
   "ts": 1678797172810000,
@@ -233,8 +251,10 @@ Documentos en formato JSON:
 * Captura de pantalla:
     * Trello ANTES de hacer la HU
     <img src="./assets/img/hu1_inicio_trello.png">
-    * Trello DESPUËS de hacer la HU
+
+    * Trello DESPUÉS de hacer la HU
     <img src="./assets/img/hu1_fin_trello.png">
+    
     * Evidencia de que está hecha la HU
     <img src="./assets/img/hu1terminada.png">
 

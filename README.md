@@ -259,6 +259,29 @@ Documentos en formato JSON:
     <img src="./assets/img/hu1terminada.png">
 
 
+### Segundo incremento
+
+* Historias de Usuario implementadas: HU2 Mostrar nombres
+                                      HU3 Mostrar nombres ordenados
+* Captura de pantalla:
+
+  **HU2**
+  
+  * Trello ANTES de hacer la HU2
+  <img src="./assets/img/inicioTrelloINC2.png">
+  * Trello DESPUÉS de hacer la HU2
+  <img src="./assets/img/finalTrelloHU2.png">
+  * Evidencia de que está hecha la HU2
+  <img src="./assets/img/validacionHU2.png">
+
+  **HU3**
+
+  * Trello ANTES de hacer la HU3
+  
+  * Trello DESPUÉS de hacer la HU3
+
+  * Evidencia de que está hecha la HU3
+
 
 # *Plantilla Práctica Microservicios*: descripción de la aplicación
 

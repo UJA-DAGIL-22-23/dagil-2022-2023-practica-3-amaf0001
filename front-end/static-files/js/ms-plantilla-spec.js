@@ -124,6 +124,133 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
 })
 
 
+let cuerpoSpec = `
+<tr title="${Plantilla.plantillaTags.ID}">
+    <td>${Plantilla.plantillaTags.ID}</td>
+    <td>${Plantilla.plantillaTags.NOMBRE}</td>
+    <td>${Plantilla.plantillaTags.APELLIDO}</td>
+    <td>${Plantilla.plantillaTags.FECHANACIMIENTO.DIA}/${Plantilla.plantillaTags.FECHANACIMIENTO.MES}/${Plantilla.plantillaTags.FECHANACIMIENTO.ANIO}</td>
+    <td>${Plantilla.plantillaTags.NVECESPREMIADO}</td>
+    <td>${Plantilla.plantillaTags["ANIOS PARTICIPACION"]}</td>
+    <td>
+                <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+    </td>
+</tr>
+`;
+
+let personaSpec = {
+    ref: {
+        "@ref": {
+            id: "359175247080980684"
+        }
+    },
+    data: {
+        nombre: "Juan",
+        apellido: "Cano",
+        fechaNacimiento: {
+            dia: 14,
+            mes: 8,
+            año: 1998
+        },
+        nVecesPremiado: 2,
+        añosParticipacion: [
+            2010,
+            2012,
+            2016
+        ]
+    }
+}
+
+describe("Plantilla.sustituyeTags: ", function () {
+    it("Sustituye correctamente en la plantilla la Persona que se le pasa",
+    function () {
+        let planti = Plantilla.sustituyeTags(cuerpoSpec, personaSpec)
+        
+        expect(planti.includes(personaSpec.data.nombre)).toBeTrue()
+        expect(planti.includes(personaSpec.data.apellido)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.dia)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.mes)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.año)).toBeTrue()
+        expect(planti.includes(personaSpec.data.nVecesPremiado)).toBeTrue()
+        expect(planti.includes(personaSpec.data.añosParticipacion[0])).toBeTrue()
+    })
+})
+
+
+describe("Plantilla.plantillaTablaPersonas.actualizaNombres: ", function () {
+    it("Sustituye correctamente en la plantilla de nombres el nombre de la persona que se le pasa", 
+    function () {
+        let planti = Plantilla.plantillaTablaPersonas.actualizaNombres(personaSpec)
+        expect(planti.includes(personaSpec.data.nombre)).toBeTrue()
+    })
+})
+
+
+let vectorPersonasSpec = [
+    {
+        ref: {
+            "@ref": {
+                id: "359175247080980684"
+            }
+        },
+        data: {
+            nombre: "Juan",
+            apellido: "Cano",
+            fechaNacimiento: {
+                dia: 14,
+                mes: 8,
+                año: 1998
+            },
+            nVecesPremiado: 2,
+            añosParticipacion: [
+                2010,
+                2012,
+                2016
+            ]
+        }
+    },
+    {
+        ref: {
+        "@ref": {
+            id: "359175529521217741"
+        }
+    },
+    data: {
+        nombre: "Ruben",
+        apellido: "Perez",
+        fechaNacimiento: {
+            dia: 11,
+            mes: 12,
+            año: 1990
+        },
+        nVecesPremiado: 5,
+        añosParticipacion: [
+            2005,
+            2006,
+            2008,
+            2010,
+            2011,
+            2013,
+            2020,
+            2021
+        ]
+    }
+    }
+]
+
+describe("Plantilla.imprimeNombres: ", function() {
+    it("Comprueba si actualiza correctamente el articulo",
+    function() {
+        Plantilla.imprimeNombres(vectorPersonasSpec)
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML.includes("Nombres de personas")).toBeTrue()
+        for(let i = 0; i < vectorPersonasSpec.length; ++i){
+            expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML.includes(vectorPersonasSpec[i].data.nombre)).toBeTrue()
+        }
+    })
+})
+
+
+
 /*
 IMPORTANTE
 ==========

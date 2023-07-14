@@ -286,7 +286,36 @@ Documentos en formato JSON:
 
   * Evidencia de que está hecha la HU3
   <img src="./assets/img/validacionHU3.png">
+
+
+### Tercer incremento
+
+* Historias de Usuario implementadas: HU4 Mostrar lista con todos los datos de todos los jugadores
+                                      HU6 Mostrar todos los datos de un determinado jugador
+* Captura de pantalla:
+
+  **HU4**
+
+  * Trello ANTES de hacer la HU4
+  <img src="./assets/img/inicioTrelloHU4.png">
+
+  * Trello DESPUÉS de hacer la HU4
+  <img src="./assets/img/finalTrelloHU4.png">
+
+  * Evidencia de que está hecha la HU4
+  <img src="./assets/img/validacionHU4.png">
+
+  **HU6**
+
+  * Trello ANTES de hacer la HU6
+  <img src="./assets/img/finalTrelloHU4.png">
+
+  * Trello DESPUÉS de hacer la HU6
   
+
+  * Evidencia de que está hecha la HU6
+  
+
 
 
 # *Plantilla Práctica Microservicios*: descripción de la aplicación

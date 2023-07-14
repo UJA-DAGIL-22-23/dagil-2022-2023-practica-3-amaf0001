@@ -40,19 +40,14 @@ Plantilla.plantillaTablaPersonas = {}
 
 // Cabecera de la tabla
 Plantilla.plantillaTablaPersonas.cabecera = `
-            <form method='post' action=''>
-                <input type="text" value="" id="form-busqueda"/> 
-                <div><a href="javascript:Plantilla.listarBusqueda()" class="opcion-secundaria mostrar">Buscar</a></div>
-            </form>
-                <table width="100%" class="listado-personas">
+                <table class="listado-personas">
                     <thead>
-                        <th width="10%">ID</th>
-                        <th width="10%">Nombre</th>
-                        <th width="20%">Apellido</th>
-                        <th width="20%">Fecha de nacimiento</th>
-                        <th width="20%">Nº veces premiado</th>
-                        <th width="30%">Años participacion</th>
-                        <th width="10%"></th>
+                        <th width="20%" style="text-align: center">ID</th>
+                        <th width="10%" style="text-align: center">Nombre</th>
+                        <th width="20%" style="text-align: center">Apellido</th>
+                        <th width="20%" style="text-align: center">Fecha de nacimiento</th>
+                        <th width="20%" style="text-align: center">Nº veces premiado</th>
+                        <th width="30%" style="text-align: center">Años participación</th>
                     </thead>
                     <tbody>
     `;
@@ -67,15 +62,12 @@ Plantilla.plantillaTablaPersonas.cabeceraNombres = `<table width="100%" class="l
 // Elemento TR que muestra los datos de una persona
 Plantilla.plantillaTablaPersonas.cuerpo = `
     <tr title="${Plantilla.plantillaTags.ID}">
-        <td>${Plantilla.plantillaTags.ID}</td>
-        <td>${Plantilla.plantillaTags.NOMBRE}</td>
-        <td>${Plantilla.plantillaTags.APELLIDO}</td>
-        <td>${Plantilla.plantillaTags.FECHANACIMIENTO.DIA}/${Plantilla.plantillaTags.FECHANACIMIENTO.MES}/${Plantilla.plantillaTags.FECHANACIMIENTO.ANIO}</td>
-        <td>${Plantilla.plantillaTags.NVECESPREMIADO}</td>
-        <td>${Plantilla.plantillaTags["ANIOS PARTICIPACION"]}</td>
-        <td>
-                    <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
-        </td>
+        <td style="text-align: center">${Plantilla.plantillaTags.ID}</td>
+        <td style="text-align: center">${Plantilla.plantillaTags.NOMBRE}</td>
+        <td style="text-align: center">${Plantilla.plantillaTags.APELLIDO}</td>
+        <td style="text-align: center">${Plantilla.plantillaTags.FECHANACIMIENTO.DIA}/${Plantilla.plantillaTags.FECHANACIMIENTO.MES}/${Plantilla.plantillaTags.FECHANACIMIENTO.ANIO}</td>
+        <td style="text-align: center">${Plantilla.plantillaTags.NVECESPREMIADO}</td>
+        <td style="text-align: center">${Plantilla.plantillaTags["ANIOS PARTICIPACION"]}</td>
     </tr>
     `;
 
@@ -195,6 +187,15 @@ Plantilla.plantillaTablaPersonas.actualizaNombres = function (persona) {
     return Plantilla.sustituyeTags(this.cuerpoNombres, persona)
 }
 
+/**
+ * Actualiza el cuerpo de la tabla con los datos de la persona que se le pasa
+ * @param {Persona} Persona Objeto con los datos de la persona que queremos escribir en el TR
+ * @returns La plantilla del cuerpo de la tabla con los datos actualizados 
+ */
+Plantilla.plantillaTablaPersonas.actualiza = function (persona) {
+    return Plantilla.sustituyeTags(this.cuerpo, persona)
+}
+
 
 /**
  * Función que recuperar todas las personas llamando al MS Personas
@@ -260,6 +261,19 @@ Plantilla.imprimeNombresOrdenados = function(vector) {
 }
 
 
+Plantilla.imprimeMuchasPersonas = function (vector) {
+    // console.log(vector) // Para comprobar lo que hay en vector
+
+    // Compongo el contenido que se va a mostrar dentro de la tabla
+    let msj = Plantilla.plantillaTablaPersonas.cabecera
+    
+    vector.forEach(e => msj += Plantilla.plantillaTablaPersonas.actualiza(e))
+    msj += Plantilla.plantillaTablaPersonas.pie
+
+    //Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Listado de personas", msj)
+}
+
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
@@ -282,6 +296,11 @@ Plantilla.listarNombres = function (){
 
 Plantilla.listarNombresOrdenados = function (){
     Plantilla.recupera(Plantilla.imprimeNombresOrdenados);
+}
+
+Plantilla.listar = function (){
+    //console.log("La busqueda es:",document.getElementById("form-busqueda").value)
+    Plantilla.recupera(Plantilla.imprimeMuchasPersonas);
 }
 
 /**

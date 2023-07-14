@@ -262,6 +262,35 @@ describe("Plantilla.imprimeNombresOrdenados: ", function() {
 })
 
 
+describe("Plantilla.plantillaTablaPersonas.actualiza: ", function () {
+    it("Sustituye correctamente en la plantilla elegida la Persona que se le pasa",
+    function () {
+        let planti = Plantilla.plantillaTablaPersonas.actualiza(personaSpec)
+        expect(planti.includes(personaSpec.data.nombre)).toBeTrue()
+        expect(planti.includes(personaSpec.data.apellido)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.dia)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.mes)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.año)).toBeTrue()
+        expect(planti.includes(personaSpec.data.nVecesPremiado)).toBeTrue()
+        expect(planti.includes(personaSpec.data.añosParticipacion[0])).toBeTrue()
+    })
+})
+
+describe("Plantilla.imprimeMuchasPersonas: ", function () {
+    it("Comprueba si actualiza correctamente el articulo",
+    function () {
+        Plantilla.imprimeMuchasPersonas(vectorPersonasSpec)
+        //console.log(document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML)
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML.includes("Listado de personas")).toBeTrue()
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML.includes(vectorPersonasSpec[0].ref['@ref'].id)).toBeTrue()
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML.includes(vectorPersonasSpec[1].ref['@ref'].id)).toBeTrue()
+        for(let i = 0; i < vectorPersonasSpec.length; ++i){
+            expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML.includes(vectorPersonasSpec[i].data.nombre)).toBeTrue()
+        }
+    })
+})
+
+
 /*
 IMPORTANTE
 ==========

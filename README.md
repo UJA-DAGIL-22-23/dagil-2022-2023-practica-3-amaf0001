@@ -266,7 +266,7 @@ Documentos en formato JSON:
 * Captura de pantalla:
 
   **HU2**
-  
+
   * Trello ANTES de hacer la HU2
   <img src="./assets/img/inicioTrelloINC2.png">
   * Trello DESPUÉS de hacer la HU2
@@ -277,10 +277,11 @@ Documentos en formato JSON:
   **HU3**
 
   * Trello ANTES de hacer la HU3
-  
+  <img src="./assets/img/finalTrelloHU2.png">
   * Trello DESPUÉS de hacer la HU3
-
+  <img src="./assets/img/finalTrelloHU3.png">
   * Evidencia de que está hecha la HU3
+  <img src="./assets/img/validacionHU3.png">
 
 
 # *Plantilla Práctica Microservicios*: descripción de la aplicación

@@ -236,6 +236,30 @@ Plantilla.imprimeNombres = function(vector) {
 }
 
 
+Plantilla.imprimeNombresOrdenados = function(vector) {
+    //console.log(vector) // Para comprobar lo que hay en vector
+     
+    vector.sort((a, b) => {
+        if (a.data.nombre == b.data.nombre) {
+          return 0;
+        }
+        if (a.data.nombre < b.data.nombre) {
+          return -1;
+        }
+        return 1;
+      });
+      
+    // Compongo el contenido que se va a mostrar dentro de la tabla
+    let msj = Plantilla.plantillaTablaPersonas.cabeceraNombres
+    
+    vector.forEach(e => msj += Plantilla.plantillaTablaPersonas.actualizaNombres(e))
+    msj += Plantilla.plantillaTablaPersonas.pie
+
+    //Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Nombres de personas ordenadas alfabéticamente", msj)
+}
+
+
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
@@ -254,6 +278,10 @@ Plantilla.procesarAcercaDe = function () {
 
 Plantilla.listarNombres = function (){
     Plantilla.recupera(Plantilla.imprimeNombres)
+}
+
+Plantilla.listarNombresOrdenados = function (){
+    Plantilla.recupera(Plantilla.imprimeNombresOrdenados);
 }
 
 /**

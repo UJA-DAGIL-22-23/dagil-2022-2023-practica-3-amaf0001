@@ -250,6 +250,17 @@ describe("Plantilla.imprimeNombres: ", function() {
 })
 
 
+describe("Plantilla.imprimeNombresOrdenados: ", function() {
+    it("Comprueba si actualiza correctamente el articulo",
+    function() {
+        Plantilla.imprimeNombresOrdenados(vectorPersonasSpec)
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML.includes("Nombres de personas ordenadas alfabéticamente")).toBeTrue()
+        for(let i = 0; i < vectorPersonasSpec.length; ++i){
+            expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML.includes(vectorPersonasSpec[i].data.nombre)).toBeTrue()
+        }
+    })
+})
+
 
 /*
 IMPORTANTE

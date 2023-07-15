@@ -333,11 +333,11 @@ click para ver los datos del anterior o del siguiente.
 
   **HU7**
 
-  * Trello ANTES de hacer la HU6
+  * Trello ANTES de hacer la HU7
   <img src="./assets/img/inicioTrelloHU7.png">
 
-  * Trello DESPUÉS de hacer la HU6
+  * Trello DESPUÉS de hacer la HU7
   <img src="./assets/img/finalTrelloHU7.png">
 
-  * Evidencia de que está hecha la HU6
+  * Evidencia de que está hecha la HU7
   <img src="./assets/img/validacionHU7.png">

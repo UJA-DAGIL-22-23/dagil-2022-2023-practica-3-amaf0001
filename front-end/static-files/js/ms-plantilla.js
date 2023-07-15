@@ -49,6 +49,8 @@ Plantilla.plantillaTablaPersonas.cabecera = `
                         <th width="20%" style="text-align: center">Nº veces premiado</th>
                         <th width="30%" style="text-align: center">Años participación</th>
                     </thead>
+                    <center><div><a href="javascript:Plantilla.siguiente()" class="opcion-secundaria mostrar">Siguiente</a>
+                    <a href="javascript:Plantilla.anterior()" class="opcion-secundaria mostrar">Anterior</a></div></center>
                     <tbody>
     `;
 
@@ -381,3 +383,30 @@ Plantilla.mostrar = function (idPersona) {
     this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
 }
 
+/**
+ * Función principal para visualizar el siguiente jugador.
+ *
+ */
+Plantilla.siguiente = function () {
+    
+    pos = (pos + 1)
+    if(pos == TodasPersonas.data.length)
+        pos = 0
+    
+    let idPersona = TodasPersonas.data[pos].ref['@ref'].id;
+    this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
+}
+
+/**
+ * Función principal para visualizar el anterior jugador.
+ *
+ */
+Plantilla.anterior = function () {
+    
+    pos = (pos - 1)
+    if(pos < 0)
+        pos = TodasPersonas.data.length -1
+    
+    let idPersona = TodasPersonas.data[pos].ref['@ref'].id;
+    this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
+}

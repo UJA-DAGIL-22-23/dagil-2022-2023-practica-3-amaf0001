@@ -68,6 +68,9 @@ Plantilla.plantillaTablaPersonas.cuerpo = `
         <td style="text-align: center">${Plantilla.plantillaTags.FECHANACIMIENTO.DIA}/${Plantilla.plantillaTags.FECHANACIMIENTO.MES}/${Plantilla.plantillaTags.FECHANACIMIENTO.ANIO}</td>
         <td style="text-align: center">${Plantilla.plantillaTags.NVECESPREMIADO}</td>
         <td style="text-align: center">${Plantilla.plantillaTags["ANIOS PARTICIPACION"]}</td>
+        <td>
+            <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+        </td>
     </tr>
     `;
 
@@ -225,6 +228,36 @@ Plantilla.recupera = async function (callBackFn){
 }
 
 
+/**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} idPersona Identificador de la persona a mostrar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
+        const response = await fetch(url);
+        if (response) {
+            const persona = await response.json()
+            callBackFn(persona)
+        }
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+    }
+}
+
+/**
+ * Imprime los datos de una persona como una tabla usando la plantilla del formulario.
+ * @param {persona} Persona Objeto con los datos de la persona
+ * @returns Una cadena con la tabla que tiene ya los datos actualizados
+ */
+Plantilla.personaComoTabla = function (persona) {
+    return Plantilla.plantillaTablaPersonas.cabecera
+        + Plantilla.plantillaTablaPersonas.actualiza(persona)
+        + Plantilla.plantillaTablaPersonas.pie;
+}
 
 Plantilla.imprimeNombres = function(vector) {
     let msj = Plantilla.plantillaTablaPersonas.cabeceraNombres
@@ -274,6 +307,32 @@ Plantilla.imprimeMuchasPersonas = function (vector) {
     Frontend.Article.actualizar("Listado de personas", msj)
 }
 
+
+/**
+ * Función para mostrar en pantalla los detalles de una persona que se ha recuperado de la BBDD por su id
+ * @param {Persona} persona Datos de la persona a mostrar
+ */
+
+Plantilla.imprimeUnaPersona = function (persona) {
+    // console.log(persona) // Para comprobar lo que hay en vector
+    let msj = Plantilla.personaComoTabla(persona);
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Mostrar una persona", msj)
+
+    // Actualiza el objeto que guarda los datos mostrados
+    Plantilla.almacenaDatos(persona)
+}
+
+/**
+ * Almacena los datos de la persona que se está mostrando
+ * @param {Persona} persona Datos de la persona a almacenar
+ */
+
+Plantilla.almacenaDatos = function (persona) {
+    Plantilla.personaMostrada = persona;
+}
+
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
@@ -308,12 +367,6 @@ Plantilla.listar = function (){
  * @param {String} idPersona Identificador de la persona a mostrar
  */
 Plantilla.mostrar = function (idPersona) {
-    for (let i = 0; i < TodasPersonas.data.length; i++) {
-        //console.log(TodasPersonas.data[i].ref['@ref'].id);
-        if(TodasPersonas.data[i].ref['@ref'].id == idPersona){
-            pos = i;
-        }
-    }
     this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
 }
 

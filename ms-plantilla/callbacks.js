@@ -124,6 +124,26 @@ const CB_OTHERS = {
         }
     },
 
+    /**
+    * Método para obtener una persona de la BBDD a partir de su ID
+    * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
+    * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
+    */
+     getPorId: async (req, res) => {
+        try {
+            // console.log( "getPorId req", req.params.idPersona ) // req.params contiene todos los parámetros de la llamada
+            let persona = await client.query(
+                q.Get(q.Ref(q.Collection('practica3_DAgil'), req.params.idPersona))
+            )
+            // console.log( persona ) // Para comprobar qué se ha devuelto en persona
+            CORS(res)
+                .status(200)
+                .json(persona)
+        } catch (error) {
+            CORS(res).status(500).json({ error: error.description })
+        }
+    },
+
 }
 
 // Une todos los callbacks en un solo objeto para poder exportarlos.

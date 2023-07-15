@@ -133,7 +133,7 @@ let cuerpoSpec = `
     <td>${Plantilla.plantillaTags.NVECESPREMIADO}</td>
     <td>${Plantilla.plantillaTags["ANIOS PARTICIPACION"]}</td>
     <td>
-                <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+        <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
     </td>
 </tr>
 `;

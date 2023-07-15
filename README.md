@@ -291,7 +291,7 @@ Documentos en formato JSON:
 ### Tercer incremento
 
 * Historias de Usuario implementadas: HU4 Mostrar lista con todos los datos de todos los jugadores
-                                      HU6 Mostrar todos los datos de un determinado jugador
+                                      
 * Captura de pantalla:
 
   **HU4**
@@ -305,17 +305,24 @@ Documentos en formato JSON:
   * Evidencia de que está hecha la HU4
   <img src="./assets/img/validacionHU4.png">
 
+  En este incremento no hice al final la HU6 por problemas con todos lo botones de Listar hechos anteriormente, ya corregidos.
+
+  
+### Cuarto incremento
+
+* Historias de Usuario implementadas: HU6 Mostrar todos los datos de un determinado jugador
+* Captura de pantalla:
+
   **HU6**
 
   * Trello ANTES de hacer la HU6
   <img src="./assets/img/finalTrelloHU4.png">
 
   * Trello DESPUÉS de hacer la HU6
-  
+  <img src="./assets/img/finalTrelloHU6.png">
 
   * Evidencia de que está hecha la HU6
-  
-
+  <img src="./assets/img/validacionHU6.png">
 
 
 # *Plantilla Práctica Microservicios*: descripción de la aplicación

@@ -334,6 +334,17 @@ Plantilla.almacenaDatos = function (persona) {
 }
 
 /**
+ * Recupera los valores almacenados de la persona que se estaba mostrando
+ * @return Datos de la persona a almacenada
+ */
+
+Plantilla.recuperaDatosAlmacenados = function () {
+    return this.personaMostrada;
+}
+
+
+
+/**
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Plantilla.procesarHome = function () {

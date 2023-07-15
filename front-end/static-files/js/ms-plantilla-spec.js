@@ -290,6 +290,52 @@ describe("Plantilla.imprimeMuchasPersonas: ", function () {
     })
 })
 
+describe("Plantilla.personaComoTabla: ", function () {
+    it("Sustituye correctamente en la plantilla del formulario la persona que le paso", 
+    function () {
+        let planti = Plantilla.personaComoTabla(personaSpec)
+        expect(planti.includes(personaSpec.data.nombre)).toBeTrue()
+        expect(planti.includes(personaSpec.data.apellido)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.dia)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.mes)).toBeTrue()
+        expect(planti.includes(personaSpec.data.fechaNacimiento.año)).toBeTrue()
+        expect(planti.includes(personaSpec.data.nVecesPremiado)).toBeTrue()
+        expect(planti.includes(personaSpec.data.añosParticipacion[0])).toBeTrue()
+    })
+})
+
+describe("Plantilla.almacenaDatos  y Plantilla.recuperaDatosAlmacenados:", function () {
+    it("Comprueba si almacena bien la persona que se le pasa",
+    function () {
+        Plantilla.almacenaDatos(personaSpec)
+        let nuevaPersona = Plantilla.recuperaDatosAlmacenados()
+        expect(nuevaPersona.data.nombre == personaSpec.data.nombre).toBeTrue()
+        expect(nuevaPersona.data.apellido == personaSpec.data.apellido).toBeTrue()
+        expect(nuevaPersona.data.fechaNacimiento.dia == personaSpec.data.fechaNacimiento.dia).toBeTrue()
+        expect(nuevaPersona.data.fechaNacimiento.mes == personaSpec.data.fechaNacimiento.mes).toBeTrue()
+        expect(nuevaPersona.data.fechaNacimiento.año == personaSpec.data.fechaNacimiento.año).toBeTrue()
+        expect(nuevaPersona.data.nVecesPremiado == personaSpec.data.nVecesPremiado).toBeTrue()
+        expect(nuevaPersona.data.añosParticipacion.length == personaSpec.data.añosParticipacion.length).toBeTrue()
+    })
+})
+
+describe("Plantilla.imprimeUnaPersona: ", function () {
+    it("Comprueba si actualiza correctamente el articulo y se guarda la persona mostrada",
+    function() {
+        Plantilla.imprimeUnaPersona(vectorPersonasSpec[0])
+        expect(Plantilla.personaMostrada.ref['@ref'].id == vectorPersonasSpec[0].ref['@ref'].id).toBeTrue()
+        expect(Plantilla.personaMostrada.data.nombre == vectorPersonasSpec[0].data.nombre).toBeTrue()
+        expect(Plantilla.personaMostrada.data.apellido == vectorPersonasSpec[0].data.apellido).toBeTrue()
+        expect(Plantilla.personaMostrada.data.fechaNacimiento.dia == vectorPersonasSpec[0].data.fechaNacimiento.dia).toBeTrue()
+        expect(Plantilla.personaMostrada.data.fechaNacimiento.mes == vectorPersonasSpec[0].data.fechaNacimiento.mes).toBeTrue()
+        expect(Plantilla.personaMostrada.data.fechaNacimiento.año == vectorPersonasSpec[0].data.fechaNacimiento.año).toBeTrue()
+        expect(Plantilla.personaMostrada.data.nVecesPremiado == vectorPersonasSpec[0].data.nVecesPremiado).toBeTrue()
+        for(let i = 0; i < vectorPersonasSpec[0].data.añosParticipacion.length; ++i){
+            expect(Plantilla.personaMostrada.data.añosParticipacion[i] == vectorPersonasSpec[0].data.añosParticipacion[i]).toBeTrue()
+        }
+        
+    })
+})
 
 /*
 IMPORTANTE
